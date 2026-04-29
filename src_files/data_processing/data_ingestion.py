@@ -47,8 +47,7 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
     """Save the train and test datasets."""
     try:
         raw_data_path = os.path.join(data_path, 'raw')
-        if not os.path.exists(raw_data_path):
-            os.makedirs(raw_data_path)
+        os.makedirs(raw_data_path, exist_ok=True)
         train_data.to_csv(os.path.join(raw_data_path, "train.csv"), index=False)
         test_data.to_csv(os.path.join(raw_data_path, "test.csv"), index=False)
         logging.debug('Train and test data saved to %s', raw_data_path)
@@ -60,7 +59,7 @@ def main():
     try:
         params = load_params(params_path='params.yaml')
         test_size = params['data_ingestion']['test_size']
-        df = load_data("data\loan_dataset.csv")
+        df = load_data("data\output\customers_education_loan_dataset.csv")
         train_data, test_data = train_test_split(df, test_size=test_size, random_state=42)
         save_data(train_data, test_data, data_path='./data')
     except Exception as e:

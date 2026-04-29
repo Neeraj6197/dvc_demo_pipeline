@@ -1,0 +1,84 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python -m src_files.data_processing.data_ingestion
+    deps:
+    - path: src_files/data_processing/data_ingestion.py
+      hash: md5
+      md5: c670cf6c0bccff7704f8d38220f7f80d
+      size: 2480
+    params:
+      params.yaml:
+        data_ingestion.test_size: 0.1
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: 089a676ba7bb330e71d3b665970f59a5.dir
+      size: 11219001
+      nfiles: 2
+  data_preprocessing:
+    cmd: python -m src_files.data_processing.data_preprocessing
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: 089a676ba7bb330e71d3b665970f59a5.dir
+      size: 11219001
+      nfiles: 2
+    - path: src_files/data_processing/data_preprocessing.py
+      hash: md5
+      md5: 0e6b7cc3007ad790f083e9925f33bafe
+      size: 2296
+    outs:
+    - path: data/processed
+      hash: md5
+      md5: 304aceb63e0208d20acfe713095828b2.dir
+      size: 10990421
+      nfiles: 2
+  model_building:
+    cmd: python -m src_files.model.model_building
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 304aceb63e0208d20acfe713095828b2.dir
+      size: 10990421
+      nfiles: 2
+    - path: src_files/model/model_building.py
+      hash: md5
+      md5: 9f3bd18828af4fc277255b1942f034e0
+      size: 3970
+    outs:
+    - path: models/education_loan_model.pkl
+      hash: md5
+      md5: 49ae881e440a23021aa11d0164bf2b7d
+      size: 1703368
+  model_evaluation:
+    cmd: python -m src_files.model.model_evaluation
+    deps:
+    - path: models/education_loan_model.pkl
+      hash: md5
+      md5: 49ae881e440a23021aa11d0164bf2b7d
+      size: 1703368
+    - path: src_files/model/model_evaluation.py
+      hash: md5
+      md5: 61f1cfba2afd227aa040c228cdafa9d5
+      size: 5384
+    outs:
+    - path: reports/experiment_info.json
+      hash: md5
+      md5: b885dba93af019b0d7893815090a3816
+      size: 82
+    - path: reports/metrics.json
+      hash: md5
+      md5: 40d012260c04ebd31163d9721d29b47d
+      size: 126
+  model_registration:
+    cmd: python -m src_files.model.register_model
+    deps:
+    - path: reports/experiment_info.json
+      hash: md5
+      md5: b885dba93af019b0d7893815090a3816
+      size: 82
+    - path: src_files/model/register_model.py
+      hash: md5
+      md5: f3b8953e41adb76151295997cf388359
+      size: 2313

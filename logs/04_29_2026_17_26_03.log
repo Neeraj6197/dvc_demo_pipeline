@@ -1,0 +1,7 @@
+[ 2026-04-29 17:26:06,305 ] root - INFO - Model loaded from ./models/education_loan_model.pkl
+[ 2026-04-29 17:26:06,329 ] root - INFO - Data loaded from ./data/processed/test_processed.csv
+[ 2026-04-29 17:26:06,333 ] root - INFO - Model evaluation started...
+[ 2026-04-29 17:26:06,424 ] root - INFO - Model evaluation metrics calculated
+[ 2026-04-29 17:26:06,425 ] root - INFO - Metrics saved to ./reports/metrics.json
+[ 2026-04-29 17:26:06,427 ] root - INFO - Logging metrics to MLflow...
+[ 2026-04-29 17:26:16,253 ] root - INFO - Metrics file logged to MLflow

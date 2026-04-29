@@ -1,0 +1,7 @@
+[ 2026-04-29 17:28:15,787 ] root - INFO - Data loaded from ./data/processed/train_processed.csv
+[ 2026-04-29 17:28:15,787 ] root - INFO - Building Column Transformer Object.
+[ 2026-04-29 17:28:15,875 ] root - INFO - Column Transformer Object built successfully.
+[ 2026-04-29 17:28:15,876 ] root - INFO - Training the model...
+[ 2026-04-29 17:28:17,471 ] root - INFO - Model training completed
+[ 2026-04-29 17:28:17,472 ] root - INFO - Saving the model...
+[ 2026-04-29 17:28:17,491 ] root - INFO - Pipeline Model saved to ./models/education_loan_model.pkl

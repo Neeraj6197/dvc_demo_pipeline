@@ -60,7 +60,7 @@ def train_model(X_train, y_train):
     """Train the Logistic Regression model."""
     try:
         logging.info('Training the model...')
-        clf = XGBClassifier(learning_rate=0.05, n_estimators=200, max_depth=5)
+        clf = XGBClassifier(learning_rate=0.05, n_estimators=250, max_depth=5)
         clf.fit(X_train, y_train)
         logging.info('Model training completed')
         return clf

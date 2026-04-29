@@ -1,0 +1,10 @@
+[ 2026-04-29 17:23:45,799 ] root - INFO - data loaded properly
+[ 2026-04-29 17:23:45,799 ] root - INFO - data preprocessing started
+[ 2026-04-29 17:23:45,800 ] root - INFO - Applying Label Encoder.
+[ 2026-04-29 17:23:45,807 ] root - INFO - Lower Casing categorical columns.
+[ 2026-04-29 17:23:45,875 ] root - INFO - Lower Casing applied to categorical columns.
+[ 2026-04-29 17:23:45,875 ] root - INFO - Applying Label Encoder.
+[ 2026-04-29 17:23:45,877 ] root - INFO - Lower Casing categorical columns.
+[ 2026-04-29 17:23:45,884 ] root - INFO - Lower Casing applied to categorical columns.
+[ 2026-04-29 17:23:45,887 ] root - INFO - Saving preprocessed data to ./data\processed
+[ 2026-04-29 17:23:46,560 ] root - INFO - Processed data saved to ./data\processed
